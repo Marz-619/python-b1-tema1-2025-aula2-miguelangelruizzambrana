@@ -19,32 +19,21 @@ Ejemplo:
     Salida:
     30
 
-Enunciat:
-Crea una funció 'sum_odd_numbers(list_numbers)' que rebi com
-paràmetre una llista de nombres positius enters anomenada 'list_numbers'
-i torneu la suma dels números imparells trobats a la llista.
-Considereu que 'list_numbers' ha de contenir valors numèrics enters majors
-o iguals a '0', en cas contrari cal mostrar un error tipus 'ValueError'.
-
-L'error el pots mostrar amb la següent instrucció:
-raise ValueError("MISSATGE D'ERROR")
-
-Paràmetres:
-- list_numbers: Llista de nombres enters positius.
-
-Exemple:
-     Entrada:
-     sum_odd_numbers([1, 2, 3, 4, 5, 10, 21, 100])
-
-     Sortida:
-     30
-
 '''
 
 def sum_odd_numbers(list_numbers):
-    # Write here your code
-    pass
-
+    # Primero revisamos las precondiciones
+    for num in list_numbers:
+        if isinstance(num,int)==False: #Uno de los elementos de la lista no es tipo entero
+            raise ValueError ("Uno de los elementos NO es de tipo entero")
+        elif num < 0: #Sabiendo que el elemento es entero, reviso que sea mayor que cero
+            raise ValueError ("Uno de los elemento es menor que cero")
+    #Cumplidas las precondiciones, calculo la suma de los impares
+    suma_impares = 0 #Inicializo el resultado de todos los numeros impares de la lista
+    for num in list_numbers:
+        if num%2 != 0: #El número es impar, se suma al total
+            suma_impares = suma_impares + num
+    return suma_impares
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(sum_odd_numbers([1, 2, 3, 4, 5, 10, 21, 100]))
+
+#print(sum_odd_numbers([-1, 2, 3, 4, 5, 10, 21, 100]))

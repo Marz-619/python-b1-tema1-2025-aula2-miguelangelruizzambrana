@@ -20,37 +20,16 @@ Ejemplo:
 
     Salida:
     6
-
-Enunciat
-Implementa la funció `mult_recursive(value, times)` que ha de tornar el
-resultat de sumar `value` `times` vegades. Com podeu veure, el vostre comportament
-real és com si fos una multiplicacióLa funció ha de ser implementada
-usant recursivitat. La funció rep dos paràmetres:
-- value: un name enter, que representa el número a sumar
-- times: un name enter, que representa el name de vegades que s'ha de sumar `value` al resultat
-Per exemple, si `value` val 2 i `times` val 3, la funció ha de tornar 6, resultat sumar 2 + 2 + 2
-
-Paràmetres:
-     value: name enter que es vol sumar
-     times: name de vegades que es vol sumar 'value'
-
-Exemple:
-     Entrada:
-     value = 2
-     times = 3
-
-     Sortida:
-     6
-
 """
 
 
 def mult_recursive(value, times):
-    # Write here your code
-    pass
-
+    if times==1: #Si la multiplicación es por 1, el valor es el propio value
+        return value
+    else:
+        #Para más repeticiones, devuelvo el valor y vuelvo a llamar a la fucnión con 1 iteracion menos
+        return value + mult_recursive(value,times-1)
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
 #if __name__ == "__main__":
-#    print("Must print 6: ", mult_recursive(2, 3))
+#   print("Must print 6: ", mult_recursive(2, 3))
